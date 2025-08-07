@@ -1,9 +1,18 @@
 "use client";
-import { createContext, useState } from "react";
+import { createContext, ReactNode, useState } from "react";
 
-export const autoContext = createContext();
+interface contexts {
+  pageNumber: number;
+  setPagenumber: React.Dispatch<React.SetStateAction<number>>;
+}
 
-export default function AutoContext({ children }) {
+interface authoType {
+  children: ReactNode;
+}
+
+export const autoContext = createContext<contexts | undefined>(undefined);
+
+export default function AutoContext({ children }: authoType) {
   const [pageNumber, setPagenumber] = useState(0);
   return (
     <autoContext.Provider value={{ pageNumber, setPagenumber }}>

@@ -4,7 +4,11 @@ import React, { useContext } from "react";
 import { autoContext } from "./Context";
 
 export default function NaveBar() {
-  const { pageNumber, setPagenumber } = useContext(autoContext);
+  const context = useContext(autoContext);
+
+  if (!context) throw new Error("Undefide !");
+
+  const { pageNumber, setPagenumber } = context;
 
   return (
     <nav className=" z-10 absolute hidden md:block p-5 top-3 right-5  ">

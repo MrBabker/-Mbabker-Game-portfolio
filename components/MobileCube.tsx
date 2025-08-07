@@ -23,11 +23,7 @@ export default function Home() {
               <ambientLight intensity={0.5} />
               <pointLight />
               <spotLight />
-              <hemisphereLight
-                skyColor="#b1e1ff"
-                groundColor="#000000"
-                intensity={2}
-              />
+              <hemisphereLight args={["#b1e1ff", "#000000", 2]} />
               <Rubiks />
               <OrbitControls
                 enablePan={false}

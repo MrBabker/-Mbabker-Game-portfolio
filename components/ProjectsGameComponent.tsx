@@ -1,33 +1,19 @@
 "use client";
 import { useContext, useEffect, useRef, useState } from "react";
-import * as THREE from "three";
-import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
-import Loader from "./Loader";
-import Skyland from "@/moduls/Skyland";
-import Sky from "@/moduls/Sky";
-import Bird from "@/moduls/Bird";
-import Plane from "@/moduls/Plane";
-import Coin from "@/moduls/Coin";
-import { OrbitControls } from "@react-three/drei";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Rubiks from "@/moduls/Rubiks";
 import BouncyText from "./BouncyText";
-import MarioCoin from "@/moduls/MarioCoin";
-import WhoAmI from "./WhoAmI";
-import WhoImIPhone from "./WhoImIPhone";
-import MobileCube from "./MobileCube";
 import NavBar from "./NavBar";
-import HeadBar from "./HeadBar";
 import Options from "./Options";
-import WhoAmIGamePhone from "./WhoAmIGamePhone";
-import WhoAmIGame from "./WhoAmIGame";
 import Link from "next/link";
 import { autoContext } from "@/components/Context";
 //2761F5
+
 export default function Home() {
-  const { pageNumber, setPagenumber } = useContext(autoContext);
+  const context = useContext(autoContext);
+
+  if (!context) throw new Error("autoContext not found");
+  const { pageNumber, setPagenumber } = context;
 
   const bungeef = {
     fontFamily: "var(--font-bungee), sans-serif",
@@ -420,7 +406,7 @@ export default function Home() {
                       iconic characters from various universes. With simple
                       controls and smooth animations, players can jump into
                       quick matches and enjoy dynamic one-on-one combat. Whether
-                      you're a casual gamer or a fan of classic fighters, this
+                      you are a casual gamer or a fan of classic fighters, this
                       game delivers fun and familiarity in every round.
                     </p>
                   </div>
@@ -642,7 +628,4 @@ export default function Home() {
       <Options />
     </section>
   );
-}
-function userContext(): { pageNumber: any; setPagenumber: any } {
-  throw new Error("Function not implemented.");
 }

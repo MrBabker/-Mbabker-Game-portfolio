@@ -1,6 +1,11 @@
 import { motion } from "framer-motion";
 
-export default function BouncyText({ text, col }) {
+interface info {
+  text: string;
+  col: string;
+}
+
+export default function BouncyText({ text, col }: info) {
   const letters = text.split("");
 
   return (

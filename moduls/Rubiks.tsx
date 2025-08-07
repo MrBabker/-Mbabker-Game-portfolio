@@ -1,7 +1,7 @@
 "use client";
 
 import { Html, useGLTF } from "@react-three/drei";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useThree } from "@react-three/fiber";
 import * as THREE from "three";
@@ -10,14 +10,14 @@ import { motion } from "framer-motion";
 export default function Home() {
   const { scene } = useGLTF("/assets/3D/rubk.glb");
 
-  const coinRef = useRef();
+  const coinRef = useRef<THREE.Mesh>(null);
   const [isDragging, setIsDragging] = useState(false);
   const { size, viewport } = useThree();
 
   const handlePointerDown = () => setIsDragging(true);
   const handlePointerUp = () => setIsDragging(false);
-  const handlePointerMove = (e) => {
-    if (!isDragging) return;
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (!isDragging || coinRef.current === null) return;
 
     const deltaX = e.movementX;
     const deltaY = e.movementY;

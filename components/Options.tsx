@@ -4,7 +4,11 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { autoContext } from "./Context";
 
 export default function StickyControl() {
-  const { pageNumber, setPagenumber } = useContext(autoContext);
+  const context = useContext(autoContext);
+
+  if (!context) throw new Error("Undefide !");
+
+  const { pageNumber, setPagenumber } = context;
 
   const [isSticky, setIsSticky] = useState(true);
 
@@ -30,7 +34,7 @@ export default function StickyControl() {
   }, []);
 
   useEffect(() => {
-    const handleClickOutside = (e) => {
+    const handleClickOutside = (e: Event) => {
       // if (optionRef.current && !optionRef.current.contains(e.target))
       // setIsClicked(false); // أغلق القائمة لو كبس خارجها
     };
