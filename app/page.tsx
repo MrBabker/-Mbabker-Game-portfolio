@@ -4,7 +4,7 @@ import ProtofolGameClient from "@/components/ProtofolGameClient";
 export default function Home() {
   return (
     <div>
-      <ProtofolGameClient />
+      <ProtofolGameClient name={process.env.NAME||"A"}/>
       <Footer />
     </div>
   );

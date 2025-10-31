@@ -17,7 +17,11 @@ import Options from "./Options";
 import WhoAmIGamePhone from "./WhoAmIGamePhone";
 import WhoAmIGame from "./WhoAmIGame";
 //2761F5
-export default function Home() {
+interface Thename{
+  name:string
+}
+
+export default function Home({name}:Thename) {
   const bungeef = {
     fontFamily: "var(--font-bungee), sans-serif",
   };
@@ -89,7 +93,7 @@ export default function Home() {
             }}
           >
             <div>
-              <BouncyText text="  Mohammed Babiker Alamin Alsunni" col="w" />
+              <BouncyText text={name} col="w" />
             </div>
           </motion.button>
           <div className=" hidden md:block w-[5%]"></div>
