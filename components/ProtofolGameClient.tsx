@@ -116,7 +116,7 @@ export default function Home({name}:Thename) {
                     <OrbitControls
                       enablePan={false}
                       enableZoom={false}
-                      minDistance={2} // أقرب شي تقدر تزوم فيه
+                      minDistance={2} // أ
                       maxDistance={10} // أبعد شي تقدر تزوم له
                       rotateSpeed={0}
                     />{" "}
